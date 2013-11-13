@@ -10,4 +10,11 @@
 
 @implementation DataController
 
+- (int)getDiceRoll
+{
+    int roll = (arc4random() % 6) + 1;
+    
+    return roll;
+}
+
 @end
