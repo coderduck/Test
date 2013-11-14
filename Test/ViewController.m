@@ -9,12 +9,13 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *dogname;
-@property (weak, nonatomic) IBOutlet UILabel *nameSaved;
+
 
 @end
 
 @implementation ViewController
+@synthesize dogNameText;
+@synthesize dogNameLabel;
 
 #pragma mark - IBActions
 
@@ -34,8 +35,8 @@
 
 - (IBAction)clickTheButton:(id)sender
 {
-    NSLog(@"%@", _dogname.text);
-    _nameSaved.text = _dogname.text;
+    NSLog(@"%@", dogNameText.text);
+    dogNameLabel.text = dogNameText.text;
     
 }
 

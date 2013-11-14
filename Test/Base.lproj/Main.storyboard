@@ -43,9 +43,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="dogNameText" destination="YBU-f6-Wo8" id="zTa-y0-a6K"/>
-                        <outlet property="dogname" destination="YBU-f6-Wo8" id="CaS-e3-VcE"/>
-                        <outlet property="nameSaved" destination="ikF-f2-sea" id="nxj-E2-ARr"/>
+                        <outlet property="dogNameLabel" destination="ikF-f2-sea" id="DwB-2u-M8A"/>
+                        <outlet property="dogNameText" destination="YBU-f6-Wo8" id="9kU-eW-7J4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

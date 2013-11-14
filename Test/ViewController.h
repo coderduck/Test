@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *dogNameText;
+@property (weak, nonatomic) IBOutlet UILabel *dogNameLabel;
+
 
 - (IBAction)clickTheButton:(id)sender;
 
