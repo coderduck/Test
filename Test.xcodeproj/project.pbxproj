@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		363F1EC91835BE8900708A1A /* Daycare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 363F1EC71835BE8900708A1A /* Daycare.xcdatamodeld */; };
+		363F1ECC1835C31B00708A1A /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F1ECB1835C31B00708A1A /* Pet.m */; };
 		3664D43F18332A780005EAE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3664D43E18332A780005EAE0 /* Foundation.framework */; };
 		3664D44118332A780005EAE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3664D44018332A780005EAE0 /* CoreGraphics.framework */; };
 		3664D44318332A780005EAE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3664D44218332A780005EAE0 /* UIKit.framework */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		363F1EC81835BE8900708A1A /* Daycare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Daycare.xcdatamodel; sourceTree = "<group>"; };
+		363F1ECA1835C31B00708A1A /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
+		363F1ECB1835C31B00708A1A /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
 		3664D43B18332A780005EAE0 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3664D43E18332A780005EAE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3664D44018332A780005EAE0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +133,9 @@
 				3664D44518332A780005EAE0 /* Supporting Files */,
 				36F3671B1833630100A40CA3 /* DataController.h */,
 				36F3671C1833630100A40CA3 /* DataController.m */,
+				363F1EC71835BE8900708A1A /* Daycare.xcdatamodeld */,
+				363F1ECA1835C31B00708A1A /* Pet.h */,
+				363F1ECB1835C31B00708A1A /* Pet.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -261,7 +269,9 @@
 				3664D45518332A780005EAE0 /* ViewController.m in Sources */,
 				36F3671D1833630100A40CA3 /* DataController.m in Sources */,
 				3664D44F18332A780005EAE0 /* AppDelegate.m in Sources */,
+				363F1ECC1835C31B00708A1A /* Pet.m in Sources */,
 				3664D44B18332A780005EAE0 /* main.m in Sources */,
+				363F1EC91835BE8900708A1A /* Daycare.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +492,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		363F1EC71835BE8900708A1A /* Daycare.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				363F1EC81835BE8900708A1A /* Daycare.xcdatamodel */,
+			);
+			currentVersion = 363F1EC81835BE8900708A1A /* Daycare.xcdatamodel */;
+			path = Daycare.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3664D43318332A780005EAE0 /* Project object */;
 }
