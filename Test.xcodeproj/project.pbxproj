@@ -22,6 +22,7 @@
 		3664D46818332A780005EAE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3664D46618332A780005EAE0 /* InfoPlist.strings */; };
 		3664D46A18332A780005EAE0 /* TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3664D46918332A780005EAE0 /* TestTests.m */; };
 		36F3671D1833630100A40CA3 /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F3671C1833630100A40CA3 /* DataController.m */; };
+		6481AED41835AA8D00797DFA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6481AED31835AA8D00797DFA /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		3664D46918332A780005EAE0 /* TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTests.m; sourceTree = "<group>"; };
 		36F3671B1833630100A40CA3 /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
 		36F3671C1833630100A40CA3 /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
+		6481AED31835AA8D00797DFA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6481AED41835AA8D00797DFA /* CoreData.framework in Frameworks */,
 				3664D44118332A780005EAE0 /* CoreGraphics.framework in Frameworks */,
 				3664D44318332A780005EAE0 /* UIKit.framework in Frameworks */,
 				3664D43F18332A780005EAE0 /* Foundation.framework in Frameworks */,
@@ -104,6 +107,7 @@
 		3664D43D18332A780005EAE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6481AED31835AA8D00797DFA /* CoreData.framework */,
 				3664D43E18332A780005EAE0 /* Foundation.framework */,
 				3664D44018332A780005EAE0 /* CoreGraphics.framework */,
 				3664D44218332A780005EAE0 /* UIKit.framework */,
