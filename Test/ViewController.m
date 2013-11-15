@@ -16,6 +16,9 @@
 @implementation ViewController
 @synthesize dogNameText;
 @synthesize dogNameLabel;
+@synthesize dogWeightText;
+@synthesize dogWeightS;
+
 
 #pragma mark - IBActions
 
@@ -37,6 +40,17 @@
 {
     NSLog(@"%@", dogNameText.text);
     dogNameLabel.text = dogNameText.text;
+    
+}
+
+- (IBAction)dogWeightSlider:(id)sender {
+    float weight = dogWeightS.value;
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:1];
+    NSString *weightText = [formatter stringFromNumber:[NSNumber numberWithFloat:weight]];
+    dogWeightText.text = weightText;
+    
     
 }
 

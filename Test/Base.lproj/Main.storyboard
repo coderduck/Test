@@ -39,12 +39,27 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="150" translatesAutoresizingMaskIntoConstraints="NO" id="zJx-EI-Y4F">
+                                <rect key="frame" x="34" y="141" width="118" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="dogWeightSlider:" destination="vXZ-lx-hvc" eventType="valueChanged" id="HzG-dM-ePp"/>
+                                </connections>
+                            </slider>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Me-Yt-5iI">
+                                <rect key="frame" x="178" y="143" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="dogNameLabel" destination="ikF-f2-sea" id="DwB-2u-M8A"/>
                         <outlet property="dogNameText" destination="YBU-f6-Wo8" id="9kU-eW-7J4"/>
+                        <outlet property="dogWeightS" destination="zJx-EI-Y4F" id="XIA-cU-jfM"/>
+                        <outlet property="dogWeightText" destination="3Me-Yt-5iI" id="rxb-7H-kMl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

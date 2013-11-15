@@ -11,8 +11,11 @@
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *dogNameText;
 @property (weak, nonatomic) IBOutlet UILabel *dogNameLabel;
+@property (weak, nonatomic) IBOutlet UITextField *dogWeightText;
+@property (weak, nonatomic) IBOutlet UISlider *dogWeightS;
 
 
 - (IBAction)clickTheButton:(id)sender;
+- (IBAction)dogWeightSlider:(id)sender;
 
 @end
