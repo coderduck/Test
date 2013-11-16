@@ -12,10 +12,7 @@
 #import "AppDelegate.h"
 #import "DataController.h"
 
-@interface ViewController ()
 
-
-@end
 
 @implementation ViewController
 @synthesize dogNameText;
@@ -69,7 +66,8 @@
     
     //  3
     NSError *error;
-    if (![self.managedObjectContext save:&error]) {
+    if (![self.managedObjectContext save:&error])
+    {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
    
