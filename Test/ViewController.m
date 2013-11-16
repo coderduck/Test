@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Pet.h"
 #import "AppDelegate.h"
+#import "DataController.h"
 
 @interface ViewController ()
 
@@ -54,7 +55,17 @@
     Pet * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pet"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:1];
+    NSNumber *weightNumber = [formatter numberFromString: dogWeightText.text];
+
     newEntry.name = dogNameText.text;
+    newEntry.weight = weightNumber;
+    
+    
+    
     
     //  3
     NSError *error;
@@ -65,6 +76,9 @@
     //  5
     [self.view endEditing:YES];
     NSLog(@"Saved..");
+    
+
+    
 }
 
 - (IBAction)dogWeightSlider:(id)sender {
@@ -75,6 +89,19 @@
     NSString *weightText = [formatter stringFromNumber:[NSNumber numberWithFloat:weight]];
     dogWeightText.text = weightText;
     
+}
+
+- (IBAction)testButton:(id)sender {
+    
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:1];
+    NSNumber *weightNumber = [formatter numberFromString: dogWeightText.text];
+    
+    NSLog(@"%@", weightNumber);
+    DataController *dh = [[DataController alloc]init];
+    NSLog(@"%d", dh.getDiceRoll);
 }
 
 

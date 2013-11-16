@@ -8,7 +8,6 @@
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
-#import <CoreData/CoreData.h>
 
 @interface ViewController : UIViewController <NSFetchedResultsControllerDelegate>
 
@@ -21,5 +20,6 @@
 
 - (IBAction)clickTheButton:(id)sender;
 - (IBAction)dogWeightSlider:(id)sender;
+- (IBAction)testButton:(id)sender;
 
 @end
