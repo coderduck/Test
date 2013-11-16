@@ -23,6 +23,26 @@
 
 #pragma mark - IBActions
 
+
+- (IBAction)chooseExistingPhoto:(id)sender {
+    picker2 = [[UIImagePickerController alloc]init];
+    picker2.delegate = self;
+    [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentViewController:picker2 animated:YES completion:NULL];
+    
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [imageView setImage:image];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 - (void)viewDidLoad
 {
     

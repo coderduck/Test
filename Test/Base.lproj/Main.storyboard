@@ -62,6 +62,20 @@
                                     <action selector="testButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GvL-z8-TWR"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0th-Lk-lQP">
+                                <rect key="frame" x="132" y="193" width="134" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufe-RA-46t">
+                                <rect key="frame" x="165" y="389" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="choose photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseExistingPhoto:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="juV-cC-4ab"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -70,6 +84,7 @@
                         <outlet property="dogNameText" destination="YBU-f6-Wo8" id="9kU-eW-7J4"/>
                         <outlet property="dogWeightS" destination="zJx-EI-Y4F" id="XIA-cU-jfM"/>
                         <outlet property="dogWeightText" destination="3Me-Yt-5iI" id="rxb-7H-kMl"/>
+                        <outlet property="imageView" destination="0th-Lk-lQP" id="0kr-1m-c3x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

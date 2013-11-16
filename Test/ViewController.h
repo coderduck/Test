@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ViewController : UIViewController <NSFetchedResultsControllerDelegate>
+@interface ViewController : UIViewController <NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+    UIImagePickerController *picker;
+    UIImagePickerController *picker2;
+    UIImage *image;
+    
+    __weak IBOutlet UIImageView *imageView;
+}
+
+
 
 @property (weak, nonatomic) IBOutlet UITextField *dogNameText;
 @property (weak, nonatomic) IBOutlet UILabel *dogNameLabel;
@@ -21,5 +29,6 @@
 - (IBAction)clickTheButton:(id)sender;
 - (IBAction)dogWeightSlider:(id)sender;
 - (IBAction)testButton:(id)sender;
+- (IBAction)chooseExistingPhoto:(id)sender;
 
 @end
