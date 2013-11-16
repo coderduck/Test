@@ -22,7 +22,10 @@
 
 
 #pragma mark - IBActions
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 - (IBAction)chooseExistingPhoto:(id)sender {
     picker2 = [[UIImagePickerController alloc]init];
@@ -54,7 +57,17 @@
     self.managedObjectContext = appDelegate.managedObjectContext;
     self.fetchedRecordsArray = [appDelegate getAllPets];
     NSLog(@"%@", self.fetchedRecordsArray);
+    
+    
+    
+    //code for handling keyboard below
+    dogNameText.delegate = self;
+    dogNameText.returnKeyType = UIReturnKeyDone;
+    
+    //end code for handling keyboard
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ViewController : UIViewController <NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface ViewController : UIViewController <NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate> {
     UIImagePickerController *picker;
     UIImagePickerController *picker2;
     UIImage *image;
@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *dogWeightS;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic,strong)NSArray* fetchedRecordsArray;
+
 
 - (IBAction)clickTheButton:(id)sender;
 - (IBAction)dogWeightSlider:(id)sender;
