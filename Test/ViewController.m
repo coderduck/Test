@@ -23,11 +23,14 @@
 
 #pragma mark - IBActions
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    //code for the done button
     [textField resignFirstResponder];
     return YES;
 }
 
 - (IBAction)chooseExistingPhoto:(id)sender {
+    [dogNameText resignFirstResponder];
+    
     picker2 = [[UIImagePickerController alloc]init];
     picker2.delegate = self;
     [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
@@ -85,8 +88,15 @@
 
 }
 
+- (IBAction)tappedAwayFromField:(UITextField *)sender {
+    
+    [sender resignFirstResponder];
+}
+
 - (IBAction)clickTheButton:(id)sender
 {
+    [dogNameText resignFirstResponder];
+    
     NSLog(@"%@", dogNameText.text);
     dogNameLabel.text = dogNameText.text;
     
@@ -139,7 +149,7 @@
 }
 
 - (IBAction)testButton:(id)sender {
-    
+    [dogNameText resignFirstResponder];
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];

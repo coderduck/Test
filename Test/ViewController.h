@@ -27,6 +27,7 @@
 @property (nonatomic,strong)NSArray* fetchedRecordsArray;
 
 - (IBAction)backgroundTapped:(UIControl *)sender;
+- (IBAction)tappedAwayFromField:(UITextField *)sender;
 
 - (IBAction)clickTheButton:(id)sender;
 - (IBAction)dogWeightSlider:(id)sender;
