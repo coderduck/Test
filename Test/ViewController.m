@@ -76,6 +76,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+- (IBAction)backgroundTapped:(UIControl *)sender {
+    [dogNameText resignFirstResponder];
+    
+
+}
+
 - (IBAction)clickTheButton:(id)sender
 {
     NSLog(@"%@", dogNameText.text);
@@ -113,6 +121,8 @@
 }
 
 - (IBAction)dogWeightSlider:(id)sender {
+    [dogNameText resignFirstResponder];
+    
     float weight = dogWeightS.value;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];

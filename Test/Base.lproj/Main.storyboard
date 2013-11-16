@@ -12,7 +12,7 @@
                         <viewControllerLayoutGuide type="top" id="wYA-6T-nMg"/>
                         <viewControllerLayoutGuide type="bottom" id="lwL-n7-Kh9"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -31,6 +31,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="tapOutOfText:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="bOh-B0-rhU"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikF-f2-sea">
                                 <rect key="frame" x="36" y="252" width="169" height="21"/>
@@ -78,6 +81,9 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTapped:" destination="vXZ-lx-hvc" eventType="touchDown" id="M7s-79-K6o"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dogNameLabel" destination="ikF-f2-sea" id="DwB-2u-M8A"/>

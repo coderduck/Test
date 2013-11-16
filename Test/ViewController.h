@@ -26,6 +26,7 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic,strong)NSArray* fetchedRecordsArray;
 
+- (IBAction)backgroundTapped:(UIControl *)sender;
 
 - (IBAction)clickTheButton:(id)sender;
 - (IBAction)dogWeightSlider:(id)sender;
