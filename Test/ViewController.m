@@ -88,10 +88,7 @@
 
 }
 
-- (IBAction)tappedAwayFromField:(UITextField *)sender {
-    
-    [sender resignFirstResponder];
-}
+
 
 - (IBAction)clickTheButton:(id)sender
 {
