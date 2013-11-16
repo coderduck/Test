@@ -79,6 +79,7 @@
 
 
 - (IBAction)backgroundTapped:(UIControl *)sender {
+    //this method entered whenever you click on anything in the background
     [dogNameText resignFirstResponder];
     
 
@@ -94,11 +95,13 @@
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
     
+    //convert string to number from dogWeightText.text
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     [formatter setMaximumFractionDigits:1];
     NSNumber *weightNumber = [formatter numberFromString: dogWeightText.text];
-
+    //
+    
     newEntry.name = dogNameText.text;
     newEntry.weight = weightNumber;
     
@@ -121,8 +124,11 @@
 }
 
 - (IBAction)dogWeightSlider:(id)sender {
+    //hides keyboard
     [dogNameText resignFirstResponder];
+    //
     
+    //takes dogWeightSlider value and converts it to text displaying it on the dogWeightText field everytime the value on slider changes
     float weight = dogWeightS.value;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
