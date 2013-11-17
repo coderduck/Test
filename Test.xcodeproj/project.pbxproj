@@ -24,6 +24,7 @@
 		36F3671D1833630100A40CA3 /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F3671C1833630100A40CA3 /* DataController.m */; };
 		643694DB18384C94008BB462 /* Daycare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 643694D918384C94008BB462 /* Daycare.xcdatamodeld */; };
 		643694ED1838513E008BB462 /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 643694EC1838513E008BB462 /* Pet.m */; };
+		646B0CA418398979009C6391 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B0CA318398979009C6391 /* UserInfoViewController.m */; };
 		6481AED41835AA8D00797DFA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6481AED31835AA8D00797DFA /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		643694DA18384C94008BB462 /* Daycare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Daycare.xcdatamodel; sourceTree = "<group>"; };
 		643694EB1838513E008BB462 /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
 		643694EC1838513E008BB462 /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
+		646B0CA218398979009C6391 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		646B0CA318398979009C6391 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		6481AED31835AA8D00797DFA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -127,6 +130,8 @@
 				3664D44D18332A780005EAE0 /* AppDelegate.h */,
 				3664D44E18332A780005EAE0 /* AppDelegate.m */,
 				3664D45018332A780005EAE0 /* Main.storyboard */,
+				646B0CA218398979009C6391 /* UserInfoViewController.h */,
+				646B0CA318398979009C6391 /* UserInfoViewController.m */,
 				3664D45318332A780005EAE0 /* ViewController.h */,
 				3664D45418332A780005EAE0 /* ViewController.m */,
 				3664D45618332A780005EAE0 /* Images.xcassets */,
@@ -271,6 +276,7 @@
 				3664D44F18332A780005EAE0 /* AppDelegate.m in Sources */,
 				643694ED1838513E008BB462 /* Pet.m in Sources */,
 				3664D44B18332A780005EAE0 /* main.m in Sources */,
+				646B0CA418398979009C6391 /* UserInfoViewController.m in Sources */,
 				643694DB18384C94008BB462 /* Daycare.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
