@@ -22,12 +22,15 @@
 @synthesize breedText;
 @synthesize fixedControl;
 @synthesize genderControl;
-
+@synthesize picker;
+@synthesize picker2;
+@synthesize imageView;
+@synthesize image;
 
 #pragma mark - IBActions
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     //code for the done button
-    [breedText becomeFirstResponder];
+    
     
     
     if(textField == breedText) {
@@ -48,8 +51,8 @@ textField {
 
 
 - (IBAction)chooseExistingPhoto:(id)sender {
-    [dogNameText resignFirstResponder];
-    [breedText resignFirstResponder];
+    if ([breedText isFirstResponder]) [breedText resignFirstResponder];
+    else if ([dogNameText isFirstResponder]) [dogNameText resignFirstResponder];
     
     picker2 = [[UIImagePickerController alloc]init];
     picker2.delegate = self;
@@ -78,7 +81,7 @@ textField {
     //2
     self.managedObjectContext = appDelegate.managedObjectContext;
     self.fetchedRecordsArray = [appDelegate getAllPets];
-    NSLog(@"%@", self.fetchedRecordsArray);
+
     
     
     
@@ -104,10 +107,10 @@ textField {
 
 
 - (IBAction)backgroundTapped:(UIControl *)sender {
-    //this method entered whenever you click on anything in the background
-    [dogNameText resignFirstResponder];
-    [breedText resignFirstResponder];
-    
+    /*/this method entered whenever you click on anything in the background
+    if ([breedText isFirstResponder]) [breedText resignFirstResponder];
+    else if ([dogNameText isFirstResponder]) [dogNameText resignFirstResponder];
+    */
 
 }
 
@@ -118,11 +121,10 @@ textField {
 
 - (IBAction)clickTheButton:(id)sender
 {
-    [dogNameText resignFirstResponder];
-    [breedText resignFirstResponder];
+    if ([breedText isFirstResponder]) [breedText resignFirstResponder];
+    else if ([dogNameText isFirstResponder]) [dogNameText resignFirstResponder];
     
-    NSLog(@"%@", dogNameText.text);
-    dogNameLabel.text = dogNameText.text;
+
     
     
     //  1
@@ -175,8 +177,8 @@ textField {
 
 - (IBAction)dogWeightSlider:(id)sender {
     //hides keyboard
-    [dogNameText resignFirstResponder];
-    [breedText resignFirstResponder];
+    if ([breedText isFirstResponder]) [breedText resignFirstResponder];
+    else if ([dogNameText isFirstResponder]) [dogNameText resignFirstResponder];
     //
     
     //takes dogWeightSlider value and converts it to text displaying it on the dogWeightText field everytime the value on slider changes
@@ -190,17 +192,24 @@ textField {
 }
 
 - (IBAction)testButton:(id)sender {
-    [dogNameText resignFirstResponder];
-    [breedText resignFirstResponder];
+    if ([breedText isFirstResponder]) [breedText resignFirstResponder];
+    else if ([dogNameText isFirstResponder]) [dogNameText resignFirstResponder];
     
     
-    NSUInteger index = 0;
+    
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     self.fetchedRecordsArray = [appDelegate getAllPets];
-    Pet * pet = [self.fetchedRecordsArray objectAtIndex:index];
-
     
-    NSLog(@"Dog Name: %@, Breed: %@, Weight: %@, Gender: %@, Fixed: %@", pet.name, pet.breed, pet.weight, pet.gender, pet.fixed);
+
+    NSUInteger counts = self.fetchedRecordsArray.count;
+    
+    
+    for (int i = 0; i < counts; i++)
+    {
+        Pet * pet = [self.fetchedRecordsArray objectAtIndex:i];
+        NSLog(@"Dog Name: %@, Breed: %@, Weight: %@, Gender: %@, Fixed: %@", pet.name, pet.breed, pet.weight, pet.gender, pet.fixed);
+    }
+    
     
 
 }

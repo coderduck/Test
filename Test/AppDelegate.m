@@ -10,9 +10,9 @@
 
 @implementation AppDelegate
 
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize managedObjectContext = managedObjectContext;
+@synthesize managedObjectModel = managedObjectModel;
+@synthesize persistentStoreCoordinator = persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -52,44 +52,44 @@
 
 // 1
 - (NSManagedObjectContext *) managedObjectContext {
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
+    if (managedObjectContext != nil) {
+        return managedObjectContext;
     }
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [_managedObjectContext setPersistentStoreCoordinator: coordinator];
+        managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [managedObjectContext setPersistentStoreCoordinator: coordinator];
     }
     
-    return _managedObjectContext;
+    return managedObjectContext;
 }
 
 //2
 - (NSManagedObjectModel *)managedObjectModel {
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
+    if (managedObjectModel != nil) {
+        return managedObjectModel;
     }
-    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     
-    return _managedObjectModel;
+    return managedObjectModel;
 }
 
 //3
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
+    if (persistentStoreCoordinator != nil) {
+        return persistentStoreCoordinator;
     }
     NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
                                                stringByAppendingPathComponent: @"PhoneBook.sqlite"]];
     NSError *error = nil;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
                                    initWithManagedObjectModel:[self managedObjectModel]];
-    if(![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+    if(![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                   configuration:nil URL:storeUrl options:nil error:&error]) {
         /*Error for store creation should be handled in here*/
     }
     
-    return _persistentStoreCoordinator;
+    return persistentStoreCoordinator;
 }
 
 - (NSString *)applicationDocumentsDirectory {
@@ -104,6 +104,8 @@
     //Setting Entity to be Queried
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Pet"
                                               inManagedObjectContext:self.managedObjectContext];
+    
+    
     [fetchRequest setEntity:entity];
     NSError* error;
     

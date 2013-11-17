@@ -32,13 +32,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Testing Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikF-f2-sea">
-                                <rect key="frame" x="25" y="288" width="114" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="150" translatesAutoresizingMaskIntoConstraints="NO" id="zJx-EI-Y4F">
                                 <rect key="frame" x="34" y="90" width="118" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -119,7 +112,6 @@
                     </view>
                     <connections>
                         <outlet property="breedText" destination="21S-Ou-03l" id="eM5-aQ-CVy"/>
-                        <outlet property="dogNameLabel" destination="ikF-f2-sea" id="DwB-2u-M8A"/>
                         <outlet property="dogNameText" destination="YBU-f6-Wo8" id="9kU-eW-7J4"/>
                         <outlet property="dogWeightS" destination="zJx-EI-Y4F" id="XIA-cU-jfM"/>
                         <outlet property="dogWeightText" destination="3Me-Yt-5iI" id="rxb-7H-kMl"/>
