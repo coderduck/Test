@@ -201,6 +201,15 @@ textField {
     NSLog(@"%@", weightNumber);
     DataController *dh = [[DataController alloc]init];
     NSLog(@"%d", dh.getDiceRoll);
+    
+    
+    NSUInteger index = 0;
+    Pet * pet = [self.fetchedRecordsArray objectAtIndex:index];
+
+    
+    NSLog(@"Dog Name: %@, Breed: %@, Weight: %@, Gender: %@, Fixed: %@", pet.name, pet.breed, pet.weight, pet.gender, pet.fixed);
+    
+
 }
 
 
