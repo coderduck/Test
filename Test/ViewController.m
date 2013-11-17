@@ -20,6 +20,9 @@
 @synthesize dogWeightText;
 @synthesize dogWeightS;
 @synthesize breedText;
+@synthesize fixedControl;
+@synthesize genderControl;
+
 
 #pragma mark - IBActions
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -55,6 +58,8 @@ textField {
     
 }
 
+
+
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [imageView setImage:image];
@@ -82,6 +87,7 @@ textField {
     dogNameText.returnKeyType = UIReturnKeyNext;
     breedText.delegate = self;
     breedText.returnKeyType = UIReturnKeyDone;
+
     
     //end code for handling keyboard
 }
@@ -104,6 +110,9 @@ textField {
     
 
 }
+
+
+
 
 
 
@@ -134,10 +143,19 @@ textField {
     newEntry.name = dogNameText.text;
     newEntry.weight = weightNumber;
     newEntry.breed = breedText.text;
+    if([genderControl selectedSegmentIndex] == 0){
+       newEntry.gender = @"MALE";
+    }
+    else if([genderControl selectedSegmentIndex] == 1){
+        newEntry.gender = @"FEMALE";
+    }
     
-    
-    
-    
+    if([fixedControl selectedSegmentIndex] == 0){
+        newEntry.fixed = @"YES";
+    }
+    else if([fixedControl selectedSegmentIndex] == 1){
+        newEntry.fixed = @"NO";
+    }
     
     //  3
     NSLog(@"Before Save..");

@@ -16,9 +16,11 @@
     UIImage *image;
     
     __weak IBOutlet UIImageView *imageView;
+    
 }
 
-
+@property (weak, nonatomic) IBOutlet UISegmentedControl *fixedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *genderControl;
 @property (weak, nonatomic) IBOutlet UITextField *breedText;
 @property (weak, nonatomic) IBOutlet UITextField *dogNameText;
 @property (weak, nonatomic) IBOutlet UILabel *dogNameLabel;
@@ -28,10 +30,11 @@
 @property (nonatomic,strong)NSArray* fetchedRecordsArray;
 
 - (IBAction)backgroundTapped:(UIControl *)sender;
-
 - (IBAction)clickTheButton:(id)sender;
 - (IBAction)dogWeightSlider:(id)sender;
 - (IBAction)testButton:(id)sender;
 - (IBAction)chooseExistingPhoto:(id)sender;
+
+
 
 @end
