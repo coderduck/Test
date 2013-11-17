@@ -200,8 +200,9 @@ textField {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     self.fetchedRecordsArray = [appDelegate getAllPets];
     
-    // I like line 203 so I'm going to add a comment here
+    // Added a comment where Mark's comment used to be cuz i like #203, i moved him to #204
     // After using mergetool, i chose remote file and manually added this comment
+    // fine ill let Ed take 203.  I'll add here.
     
     //loop to print all fetched pet records in array
     for (int i = 0; i < self.fetchedRecordsArray.count; i++)
