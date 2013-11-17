@@ -193,17 +193,10 @@ textField {
     [dogNameText resignFirstResponder];
     [breedText resignFirstResponder];
     
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setMaximumFractionDigits:1];
-    NSNumber *weightNumber = [formatter numberFromString: dogWeightText.text];
-    
-    NSLog(@"%@", weightNumber);
-    DataController *dh = [[DataController alloc]init];
-    NSLog(@"%d", dh.getDiceRoll);
-    
     
     NSUInteger index = 0;
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.fetchedRecordsArray = [appDelegate getAllPets];
     Pet * pet = [self.fetchedRecordsArray objectAtIndex:index];
 
     
