@@ -107,10 +107,10 @@ textField {
 
 
 - (IBAction)backgroundTapped:(UIControl *)sender {
-    /*/this method entered whenever you click on anything in the background
+    //this method entered whenever you click on anything in the background
     if ([breedText isFirstResponder]) [breedText resignFirstResponder];
     else if ([dogNameText isFirstResponder]) [dogNameText resignFirstResponder];
-    */
+    
 
 }
 
