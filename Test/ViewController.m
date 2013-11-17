@@ -201,10 +201,8 @@ textField {
     self.fetchedRecordsArray = [appDelegate getAllPets];
     
 
-    NSUInteger counts = self.fetchedRecordsArray.count;
-    
-    
-    for (int i = 0; i < counts; i++)
+    //loop to print all fetched pet records in array
+    for (int i = 0; i < self.fetchedRecordsArray.count; i++)
     {
         Pet * pet = [self.fetchedRecordsArray objectAtIndex:i];
         NSLog(@"Dog Name: %@, Breed: %@, Weight: %@, Gender: %@, Fixed: %@", pet.name, pet.breed, pet.weight, pet.gender, pet.fixed);
