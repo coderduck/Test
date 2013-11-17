@@ -202,7 +202,7 @@ textField {
     
 
     NSUInteger counts = self.fetchedRecordsArray.count;
-    
+    // Adding a simple comment here to test merge
     
     for (int i = 0; i < counts; i++)
     {
