@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
+
 @interface ViewController : UIViewController <NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate> {
     UIImagePickerController *picker;
     UIImagePickerController *picker2;
@@ -18,7 +19,7 @@
 }
 
 
-
+@property (weak, nonatomic) IBOutlet UITextField *breedText;
 @property (weak, nonatomic) IBOutlet UITextField *dogNameText;
 @property (weak, nonatomic) IBOutlet UILabel *dogNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *dogWeightText;

@@ -2,7 +2,7 @@
 //  Pet.h
 //  Test
 //
-//  Created by Mark Tran on 11/14/13.
+//  Created by Edward Jo on 11/16/13.
 //  Copyright (c) 2013 Mark Tran. All rights reserved.
 //
 
@@ -12,11 +12,11 @@
 
 @interface Pet : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * weight;
-@property (nonatomic, retain) NSNumber * breed;
+@property (nonatomic, retain) NSString * breed;
+@property (nonatomic, retain) NSString * fixed;
 @property (nonatomic, retain) NSString * gender;
-@property (nonatomic, retain) NSData * fixed;
+@property (nonatomic, retain) NSNumber * weight;
+@property (nonatomic, retain) NSNumber * id;
 
 @end

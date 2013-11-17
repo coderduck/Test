@@ -19,17 +19,34 @@
 @synthesize dogNameLabel;
 @synthesize dogWeightText;
 @synthesize dogWeightS;
-
+@synthesize breedText;
 
 #pragma mark - IBActions
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     //code for the done button
-    [textField resignFirstResponder];
+    [breedText becomeFirstResponder];
+    
+    
+    if(textField == breedText) {
+        [textField resignFirstResponder];
+    }
+    else {
+        [breedText becomeFirstResponder];
+    }
     return YES;
 }
 
+- (BOOL)textFieldToNext:(UITextField *)
+textField {
+    [breedText becomeFirstResponder];
+    return YES;
+}
+
+
+
 - (IBAction)chooseExistingPhoto:(id)sender {
     [dogNameText resignFirstResponder];
+    [breedText resignFirstResponder];
     
     picker2 = [[UIImagePickerController alloc]init];
     picker2.delegate = self;
@@ -45,9 +62,6 @@
     
 }
 
-- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
 
 - (void)viewDidLoad
 {
@@ -65,7 +79,9 @@
     
     //code for handling keyboard below
     dogNameText.delegate = self;
-    dogNameText.returnKeyType = UIReturnKeyDone;
+    dogNameText.returnKeyType = UIReturnKeyNext;
+    breedText.delegate = self;
+    breedText.returnKeyType = UIReturnKeyDone;
     
     //end code for handling keyboard
 }
@@ -84,6 +100,7 @@
 - (IBAction)backgroundTapped:(UIControl *)sender {
     //this method entered whenever you click on anything in the background
     [dogNameText resignFirstResponder];
+    [breedText resignFirstResponder];
     
 
 }
@@ -93,9 +110,11 @@
 - (IBAction)clickTheButton:(id)sender
 {
     [dogNameText resignFirstResponder];
+    [breedText resignFirstResponder];
     
     NSLog(@"%@", dogNameText.text);
     dogNameLabel.text = dogNameText.text;
+    
     
     //  1
     Pet * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pet"
@@ -109,19 +128,25 @@
     NSNumber *weightNumber = [formatter numberFromString: dogWeightText.text];
     //
     
+    
+
+    
     newEntry.name = dogNameText.text;
     newEntry.weight = weightNumber;
+    newEntry.breed = breedText.text;
+    
     
     
     
     
     //  3
+    NSLog(@"Before Save..");
     NSError *error;
     if (![self.managedObjectContext save:&error])
     {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-   
+    NSLog(@"Before Save..2");
     //  5
     [self.view endEditing:YES];
     NSLog(@"Saved..");
@@ -133,6 +158,7 @@
 - (IBAction)dogWeightSlider:(id)sender {
     //hides keyboard
     [dogNameText resignFirstResponder];
+    [breedText resignFirstResponder];
     //
     
     //takes dogWeightSlider value and converts it to text displaying it on the dogWeightText field everytime the value on slider changes
@@ -147,6 +173,7 @@
 
 - (IBAction)testButton:(id)sender {
     [dogNameText resignFirstResponder];
+    [breedText resignFirstResponder];
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
