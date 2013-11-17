@@ -200,11 +200,10 @@ textField {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     self.fetchedRecordsArray = [appDelegate getAllPets];
     
-
-    NSUInteger counts = self.fetchedRecordsArray.count;
-    // Adding a simple comment here to test merge
+    // After using mergetool, i chose remote file and manually added this comment
     
-    for (int i = 0; i < counts; i++)
+    //loop to print all fetched pet records in array
+    for (int i = 0; i < self.fetchedRecordsArray.count; i++)
     {
         Pet * pet = [self.fetchedRecordsArray objectAtIndex:i];
         NSLog(@"Dog Name: %@, Breed: %@, Weight: %@, Gender: %@, Fixed: %@", pet.name, pet.breed, pet.weight, pet.gender, pet.fixed);
