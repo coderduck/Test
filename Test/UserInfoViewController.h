@@ -7,9 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface UserInfoViewController : UIViewController
+@interface UserInfoViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource,NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate> {
+    
+    NSArray *states;
+    
+}
+
 @property (weak, nonatomic) IBOutlet UITextField *firstNameText;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameText;
+@property (weak, nonatomic) IBOutlet UITextField *streetAddressText;
+@property (weak, nonatomic) IBOutlet UITextField *cityText;
+@property (weak, nonatomic) IBOutlet UITextField *zipText;
+
+
+@property (weak, nonatomic) IBOutlet UIPickerView *statePicker;
+- (IBAction)saveButton:(id)sender;
+- (IBAction)testButton:(id)sender;
 
 @end
