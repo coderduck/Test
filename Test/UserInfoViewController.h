@@ -12,7 +12,7 @@
 @interface UserInfoViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource,NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate> {
     
     NSArray *states;
-    
+    NSArray *pets;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *firstNameText;
@@ -25,5 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *statePicker;
 - (IBAction)saveButton:(id)sender;
 - (IBAction)testButton:(id)sender;
+
+
+-(void) fetchPetData;
 
 @end

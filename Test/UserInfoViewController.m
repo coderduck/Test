@@ -64,7 +64,6 @@
     streetAddressText.delegate = self;
     streetAddressText.returnKeyType = UIReturnKeyNext;
     
-
 }
     
 - (void)didReceiveMemoryWarning
@@ -89,11 +88,86 @@
     //set item per row
     return [states objectAtIndex:row];
 }
+-(void) fetchPetData
+{
+    
+    /*
+    
+    NSURL *url = [[NSURL alloc]init];
+    [url initWithString:@"https://darkwing.dsmynas.com/api/Pet/1"];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
+                                                cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                            timeoutInterval:30];
+    // Fetch the JSON response
+    NSData *urlData;
+    NSURLResponse *response;
+    NSError *error;
+    
+    // Make synchronous request
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest
+                                    returningResponse:&response
+                                                error:&error];
+    
+    // Construct a String around the Data from the response
+    NSString *result = [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding];
+
+    NSLog(@"%@", result);
+     */
+    /*
+    CFMutableDictionaryRef securityDictRef = CFDictionaryCreateMutable (kCFAllocatorDefault,
+                                                                        0 ,
+                                                                        & kCFTypeDictionaryKeyCallBacks,
+                                                                        & kCFTypeDictionaryValueCallBacks);
+    NSString *urlString = @"https://darkwing.dsmynas.com/api/Pet/1";
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+    NSURLRequest *request = [NSURLRequest
+                             requestWithURL:[NSURL URLWithString:urlString]
+                             cachePolicy:NSURLRequestReloadIgnoringCacheData
+                             timeoutInterval:5.0];
+    
+    
+    NSData *conn = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error ];
+    */
+    
+    
+    /*
+    NSString *urlAsString = [NSString stringWithFormat:@"https://darkwing.dsmynas.com/api/Pet/1"];
+    NSURL *url = [[NSURL alloc] initWithString:urlAsString];
+    NSLog(@"%@", urlAsString);
+    
+    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if (error) {
+            //[self.delegate fetchingGroupsFailedWithError:error];
+        } else {
+            //[self.delegate receivedGroupsJSON:data];
+        }
+    }];
+    */
+     
+    /*
+    
+    NSString *query = @"https://darkwing.dsmynas.com/api/Pet/1";
+    NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:query] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
+    
+    
+    
+    
+    NSString *text = [results objectForKey:@"text"];
+    NSLog(@"%@", text);
+     
+    */
+}
+
 
 - (IBAction)saveButton:(id)sender {
 }
 
 - (IBAction)testButton:(id)sender {
-
+    [self fetchPetData];
+    
 }
 @end
