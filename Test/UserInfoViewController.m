@@ -36,6 +36,12 @@
         [lastNameText resignFirstResponder];
         [streetAddressText becomeFirstResponder];
     }
+    else if(textField == streetAddressText)
+    {
+        [streetAddressText resignFirstResponder];
+        [cityText becomeFirstResponder];
+        
+    }
     return YES;
 }
 
@@ -63,6 +69,8 @@
     lastNameText.returnKeyType = UIReturnKeyNext;
     streetAddressText.delegate = self;
     streetAddressText.returnKeyType = UIReturnKeyNext;
+    cityText.delegate = self;
+    cityText.returnKeyType = UIReturnKeyNext;
     
 }
     
@@ -160,6 +168,20 @@
     NSLog(@"%@", text);
      
     */
+}
+
+- (IBAction)backgroundTouched:(id)sender {
+    if([firstNameText isFirstResponder])
+        [firstNameText resignFirstResponder];
+    else if([lastNameText isFirstResponder])
+        [lastNameText resignFirstResponder];
+    else if([streetAddressText isFirstResponder])
+        [streetAddressText resignFirstResponder];
+    else if([cityText isFirstResponder])
+        [cityText resignFirstResponder];
+    else if([zipText isFirstResponder])
+        [zipText resignFirstResponder];
+
 }
 
 

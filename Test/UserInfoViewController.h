@@ -28,5 +28,6 @@
 
 
 -(void) fetchPetData;
+- (IBAction)backgroundTouched:(id)sender;
 
 @end

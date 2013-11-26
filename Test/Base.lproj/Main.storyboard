@@ -197,6 +197,9 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTouched:" destination="qqY-dg-pVm" eventType="touchDown" id="nle-lQ-OHR"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="zn3-nM-vbe"/>
                     <connections>
