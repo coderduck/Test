@@ -71,7 +71,10 @@ static NSString *kOtherCell = @"otherCell";     // the remaining cells at the en
                                              selector:@selector(localeChanged:)
                                                  name:NSCurrentLocaleDidChangeNotification
                                                object:nil];
-}
+    
+    self.tableView.scrollEnabled = NO;
+    UIEdgeInsets inset = UIEdgeInsetsMake(-15, 0, 0, 0);
+    self.tableView.contentInset = inset;}
 
 - (void)dealloc
 {
