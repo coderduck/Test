@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 
 @interface UserInfoViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource,NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate> {
-    
+    NSMutableData *_responseData;
     NSArray *states;
     NSArray *pets;
 }

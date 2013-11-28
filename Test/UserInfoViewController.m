@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 
 @interface UserInfoViewController ()
-
+    
 @end
 
 @implementation UserInfoViewController
@@ -21,6 +21,8 @@
 @synthesize cityText;
 @synthesize zipText;
 @synthesize statePicker;
+
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     //code for the done button
@@ -99,76 +101,23 @@
 -(void) fetchPetData
 {
     
-    /*
-    
-    NSURL *url = [[NSURL alloc]init];
-    [url initWithString:@"https://darkwing.dsmynas.com/api/Pet/1"];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
-                                                cachePolicy:NSURLRequestReturnCacheDataElseLoad
-                                            timeoutInterval:30];
-    // Fetch the JSON response
-    NSData *urlData;
-    NSURLResponse *response;
-    NSError *error;
-    
-    // Make synchronous request
-    urlData = [NSURLConnection sendSynchronousRequest:urlRequest
-                                    returningResponse:&response
-                                                error:&error];
-    
-    // Construct a String around the Data from the response
-    NSString *result = [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding];
+    // Create the request.
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"XXXXXXXX"]];
 
-    NSLog(@"%@", result);
-     */
-    /*
-    CFMutableDictionaryRef securityDictRef = CFDictionaryCreateMutable (kCFAllocatorDefault,
-                                                                        0 ,
-                                                                        & kCFTypeDictionaryKeyCallBacks,
-                                                                        & kCFTypeDictionaryValueCallBacks);
-    NSString *urlString = @"https://darkwing.dsmynas.com/api/Pet/1";
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-    NSURLRequest *request = [NSURLRequest
-                             requestWithURL:[NSURL URLWithString:urlString]
-                             cachePolicy:NSURLRequestReloadIgnoringCacheData
-                             timeoutInterval:5.0];
+    // Create a mutable (changeable) copy of the immutable request and add more headers
+    NSMutableURLRequest *mutableRequest = [request mutableCopy];
+    [mutableRequest addValue:@"application/json;q=0.9,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
+    [mutableRequest addValue:@"text/html" forHTTPHeaderField:@"Content-Type"];
+
+    request = [mutableRequest mutableCopy];
     
+    // Create url connection and fire request
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+
     
-    NSData *conn = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error ];
-    */
+
     
-    
-    /*
-    NSString *urlAsString = [NSString stringWithFormat:@"https://darkwing.dsmynas.com/api/Pet/1"];
-    NSURL *url = [[NSURL alloc] initWithString:urlAsString];
-    NSLog(@"%@", urlAsString);
-    
-    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        if (error) {
-            //[self.delegate fetchingGroupsFailedWithError:error];
-        } else {
-            //[self.delegate receivedGroupsJSON:data];
-        }
-    }];
-    */
-     
-    /*
-    
-    NSString *query = @"https://darkwing.dsmynas.com/api/Pet/1";
-    NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:query] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error = nil;
-    NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
-    
-    
-    
-    
-    NSString *text = [results objectForKey:@"text"];
-    NSLog(@"%@", text);
-     
-    */
-}
+   }
 
 - (IBAction)backgroundTouched:(id)sender {
     if([firstNameText isFirstResponder])
@@ -191,5 +140,57 @@
 - (IBAction)testButton:(id)sender {
     [self fetchPetData];
     
+}
+
+#pragma mark NSURLConnection Delegate Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    // A response has been received, this is where we initialize the instance var you created
+    // so that we can append data to it in the didReceiveData method
+    // Furthermore, this method is called each time there is a redirect so reinitializing it
+    // also serves to clear it
+    _responseData = [[NSMutableData alloc] init];
+    NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+    int code = [httpResponse statusCode];
+    NSLog(@"HTTP Status Code: %d", code);
+    NSLog( @"didReceiveResponse");
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    // Append the new data to the instance variable you declared
+    [_responseData appendData:data];
+    NSLog(@"didReceiveData");
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    
+    NSLog(@"willCacheResponse");
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+    NSLog(@"connectionDidFinishLoading");
+    NSError *error;
+    NSDictionary *results = _responseData ? [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
+    
+    if (results == nil)
+    {
+        NSLog(@"Invalid JSON Object");
+    }
+    else
+    {
+        NSLog(@"%@", results);
+    }
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
+    NSLog(@"didFailWithError:");
 }
 @end
