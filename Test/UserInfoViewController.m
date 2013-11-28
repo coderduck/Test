@@ -22,8 +22,6 @@
 @synthesize zipText;
 @synthesize statePicker;
 
-
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     //code for the done button
     
@@ -102,7 +100,7 @@
 {
     
     // Create the request.
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"XXXXXXXX"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"XXXXXX"]];
 
     // Create a mutable (changeable) copy of the immutable request and add more headers
     NSMutableURLRequest *mutableRequest = [request mutableCopy];
@@ -115,7 +113,7 @@
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
     
-
+    
     
    }
 
@@ -154,6 +152,12 @@
     int code = [httpResponse statusCode];
     NSLog(@"HTTP Status Code: %d", code);
     NSLog( @"didReceiveResponse");
+    
+    if (code < 200 || code > 299)
+    {
+        [connection cancel];
+        NSLog(@"Connection cancelled");
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
