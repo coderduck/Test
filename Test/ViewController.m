@@ -204,16 +204,104 @@ textField {
     // After using mergetool, i chose remote file and manually added this comment
     // fine ill let Ed take 203.  I'll add here.
     
-    //loop to print all fetched pet records in array
+    //loop to print all local pet records in array
     for (int i = 0; i < self.fetchedRecordsArray.count; i++)
     {
         Pet * pet = [self.fetchedRecordsArray objectAtIndex:i];
         NSLog(@"Dog Name: %@, Breed: %@, Weight: %@, Gender: %@, Fixed: %@", pet.name, pet.breed, pet.weight, pet.gender, pet.fixed);
     }
     
+
+    //start code for http get request
+    NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    breedText.text, @"breed",
+                                    fixedControl.selectedSegmentIndex==0 ? @"Y" : @"N", @"fixed",
+                                    genderControl.selectedSegmentIndex==0 ? @"M" : @"F", @"gender",
+                                    dogNameText.text, @"name",
+                                    dogWeightText.text, @"weight",
+                                    nil];
+    
+    //NSMutableArray * arr = [[NSMutableArray alloc] init];
+    NSError *error;
+    //[arr addObject:jsonDictionary];
+    NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:jsonDictionary /*change to arr*/ options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
+    NSLog(@"jsonData as string:\n%@", jsonString);
     
 
+    
+    
+    
+    NSURL *url = [NSURL URLWithString:@"xxxxxx"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    
+    NSData *requestData = [NSData dataWithBytes:[jsonString UTF8String] length:[jsonString length]];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody: requestData];
+    
+    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
+    //NSMutableData *receivedData = [[NSMutableData alloc]init];
+    //_responseData = appendData:data;
 }
 
+#pragma mark NSURLConnection Delegate Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    // A response has been received, this is where we initialize the instance var you created
+    // so that we can append data to it in the didReceiveData method
+    // Furthermore, this method is called each time there is a redirect so reinitializing it
+    // also serves to clear it
+    _responseData = [[NSMutableData alloc] init];
+    NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+    int code = [httpResponse statusCode];
+    NSLog(@"HTTP Status Code: %d", code);
+    NSLog( @"didReceiveResponse");
+    
+    if (code < 200 || code > 299)
+    {
+        [connection cancel];
+        NSLog(@"Connection cancelled");
+    }
+    
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    // Append the new data to the instance variable you declared
+    [_responseData appendData:data];
+    
+    
+    NSLog(@"didReceiveData");
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // Return nil to indicate not necessary to store a cached response for this connection
+    
+    NSLog(@"willCacheResponse");
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+    NSLog(@"connectionDidFinishLoading");
+
+    NSString* responseString = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"response: %@",responseString);
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // The request has failed for some reason!
+    // Check the error var
+    NSLog(@"didFailWithError:");
+}
 
 @end

@@ -25,8 +25,9 @@
 		643694DB18384C94008BB462 /* Daycare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 643694D918384C94008BB462 /* Daycare.xcdatamodeld */; };
 		643694ED1838513E008BB462 /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 643694EC1838513E008BB462 /* Pet.m */; };
 		646B0CA418398979009C6391 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B0CA318398979009C6391 /* UserInfoViewController.m */; };
-		646B0CA71839A564009C6391 /* DogServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B0CA61839A564009C6391 /* DogServicesViewController.m */; };
+		6476FCFA18444B3D002524D3 /* DogMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476FCF918444B3D002524D3 /* DogMainTableViewController.m */; };
 		6481AED41835AA8D00797DFA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6481AED31835AA8D00797DFA /* CoreData.framework */; };
+		64A8087818482B4F00B743B7 /* MyDogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A8087718482B4F00B743B7 /* MyDogsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +67,11 @@
 		643694EC1838513E008BB462 /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
 		646B0CA218398979009C6391 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		646B0CA318398979009C6391 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
-		646B0CA51839A564009C6391 /* DogServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DogServicesViewController.h; sourceTree = "<group>"; };
-		646B0CA61839A564009C6391 /* DogServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DogServicesViewController.m; sourceTree = "<group>"; };
+		6476FCF818444B3D002524D3 /* DogMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DogMainTableViewController.h; sourceTree = "<group>"; };
+		6476FCF918444B3D002524D3 /* DogMainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DogMainTableViewController.m; sourceTree = "<group>"; };
 		6481AED31835AA8D00797DFA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		64A8087618482B4F00B743B7 /* MyDogsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDogsViewController.h; sourceTree = "<group>"; };
+		64A8087718482B4F00B743B7 /* MyDogsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDogsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,11 +133,13 @@
 		3664D44418332A780005EAE0 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				6476FCF818444B3D002524D3 /* DogMainTableViewController.h */,
+				6476FCF918444B3D002524D3 /* DogMainTableViewController.m */,
 				3664D44D18332A780005EAE0 /* AppDelegate.h */,
 				3664D44E18332A780005EAE0 /* AppDelegate.m */,
 				3664D45018332A780005EAE0 /* Main.storyboard */,
-				646B0CA51839A564009C6391 /* DogServicesViewController.h */,
-				646B0CA61839A564009C6391 /* DogServicesViewController.m */,
+				64A8087618482B4F00B743B7 /* MyDogsViewController.h */,
+				64A8087718482B4F00B743B7 /* MyDogsViewController.m */,
 				646B0CA218398979009C6391 /* UserInfoViewController.h */,
 				646B0CA318398979009C6391 /* UserInfoViewController.m */,
 				3664D45318332A780005EAE0 /* ViewController.h */,
@@ -276,12 +281,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64A8087818482B4F00B743B7 /* MyDogsViewController.m in Sources */,
 				3664D45518332A780005EAE0 /* ViewController.m in Sources */,
 				36F3671D1833630100A40CA3 /* DataController.m in Sources */,
 				3664D44F18332A780005EAE0 /* AppDelegate.m in Sources */,
-				646B0CA71839A564009C6391 /* DogServicesViewController.m in Sources */,
 				643694ED1838513E008BB462 /* Pet.m in Sources */,
 				3664D44B18332A780005EAE0 /* main.m in Sources */,
+				6476FCFA18444B3D002524D3 /* DogMainTableViewController.m in Sources */,
 				646B0CA418398979009C6391 /* UserInfoViewController.m in Sources */,
 				643694DB18384C94008BB462 /* Daycare.xcdatamodeld in Sources */,
 			);

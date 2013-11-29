@@ -10,7 +10,11 @@
 
 
 
-@interface ViewController : UIViewController <NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+@interface ViewController : UIViewController <NSFetchedResultsControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate> {
+    
+    
+    NSMutableData *_responseData;
+}
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *fixedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *genderControl;

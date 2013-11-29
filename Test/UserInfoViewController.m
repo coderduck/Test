@@ -100,7 +100,7 @@
 {
     
     // Create the request.
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"XXXXXX"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"hxxxx"]];
 
     // Create a mutable (changeable) copy of the immutable request and add more headers
     NSMutableURLRequest *mutableRequest = [request mutableCopy];
@@ -188,6 +188,12 @@
     else
     {
         NSLog(@"%@", results);
+        
+        NSArray *dogNames = [results objectForKey:@"name"];
+
+        NSLog(@"%@", dogNames);
+
+
     }
     
 }
