@@ -28,18 +28,7 @@
 {
     [super viewDidLoad];
     
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
 
-    // Do any additional setup after loading the view, typically from a nib.
-    //1
-
-    //2
-    self.managedObjectContext = appDelegate.managedObjectContext;
-    self.fetchedRecordsArray = [[appDelegate getAllPets] mutableCopy] ;
-    
-    NSLog(@"In viewDidLoad, fetchedRecordsArray.count: %d", self.fetchedRecordsArray.count);
-    
 
     
     // Added a comment where Mark's comment used to be cuz i like #203, i moved him to #204
@@ -76,6 +65,21 @@
     UIEdgeInsets inset = UIEdgeInsetsMake(20, 0, 0, 0);
     self.tableView.contentInset = inset;
 }
+
+-(void) viewWillAppear: (BOOL) animated
+{
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    
+    // Do any additional setup after loading the view, typically from a nib.
+    //1
+    
+    //2
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    self.fetchedRecordsArray = [[appDelegate getAllPets] mutableCopy] ;
+    [self.tableView reloadData];
+}
+
+
 
 #pragma mark - Table view data source
 
